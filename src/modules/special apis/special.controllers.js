@@ -5,7 +5,7 @@ import db from "../../../db/connectionDB.js"
 // ======================================= (1) Get All cars with A spacific Model  ========================================
 
 export const getCarsByModel = async (req , res , next) =>{
-    const cars = await db.collection("cars").find({model:{$in:req.query.model}}).toArray()
+    const cars = await db.collection("cars").find({model:req.query.model}).toArray()
     res.status(200).json(cars)
 }
 
